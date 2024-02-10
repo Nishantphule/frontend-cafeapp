@@ -1,29 +1,7 @@
-import { useEffect, useState } from "react";
 import '../App.css';
 import Button from '@mui/material/Button';
-import { useCartContext } from "../Context/cartContext";
-import { useAppContext } from "../Context/productsContext";
 
-function Counter({ item, id }) {
-  const { addToCart } = useCartContext();
-  const { toggleAmount } = useAppContext();
-  const [noOfItems, setNoOfItems] = useState(item.quantity);
-
-  useEffect(() => {
-    toggleAmount(id, noOfItems)
-    addToCart(item, noOfItems, noOfItems * item.price)
-    // eslint-disable-next-line
-  }, [noOfItems])
-
-
-  function handleIncrease() {
-    setNoOfItems(noOfItems + 1)
-  }
-
-  const handleDecrease = () => {
-    setNoOfItems(noOfItems - 1)
-  }
-
+function Counter({ handleDecrease, handleIncrease, noOfItems }) {
 
   return (
     <div className='cart-counter'>

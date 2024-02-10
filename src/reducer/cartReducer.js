@@ -27,6 +27,7 @@ const cartReducer = (state, action) => {
 
             cartProduct = {
                 id: item.productId,
+                url: item.imgUrl,
                 name: item.productName,
                 price: item.price,
                 quantity: noOfItems,

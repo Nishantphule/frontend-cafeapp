@@ -62,8 +62,6 @@ const initialState = {
     cart: getLocalCartData(),
     total_item: getLocalItems(),
     total_amount: getLocalAmount(),
-    // eslint-disable-next-line
-    isEmpty: localStorage.getItem("cartItems") == [] ? true : false
 }
 
 const CartProvider = ({ children }) => {

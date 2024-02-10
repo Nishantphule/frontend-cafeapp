@@ -109,7 +109,29 @@
 
 
 
-/* Table Css */
+/* Cart Css */
+
+.cartCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartCardContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cartCardContent>img {
+  height: 60px;
+  width: 60px;
+  object-fit: cover;
+  margin: 5px 5px;
+  padding: 1%;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+}
 
 .table-container {
   overflow-x: auto;
@@ -151,7 +173,7 @@ thead tr {
   .table-container {
     overflow-x: auto;
     margin: 20px 5px;
-    width: 60%;
+    width: 50%;
     margin: auto;
     /* Enable horizontal scrolling on small screens */
   }
