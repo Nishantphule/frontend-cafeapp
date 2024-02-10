@@ -5,10 +5,25 @@ import { useEffect } from 'react';
 
 const AppContext = createContext();
 
+const getLocalMenuData = () => {
+    let localMenudata = localStorage.getItem("menuItems");
+    if (localMenudata) {
+        if (JSON.parse(localMenudata).length === 0) {
+            return [];
+        }
+        else {
+            return JSON.parse(localMenudata);
+        }
+    }
+    else {
+        return []
+    }
+}
+
 const initialState = {
     isLoading: false,
     isError: false,
-    products: []
+    products: getLocalMenuData()
 }
 
 const AppProvider = ({ children }) => {
@@ -35,6 +50,10 @@ const AppProvider = ({ children }) => {
         dispatch({ type: "TOGGLE_AMOUNT", payload: { itemId, noOfItems, ...state } })
     }
 
+    // add data to local storage
+    useEffect(() => {
+        localStorage.setItem("menuItems", JSON.stringify(state.products))
+    }, [state.products])
 
     return (<AppContext.Provider value={{ ...state, toggleAmount }}>{children}</AppContext.Provider>);
 }

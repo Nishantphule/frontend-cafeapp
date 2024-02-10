@@ -17,13 +17,13 @@ export default function MediaCard({ item, id }) {
       />
 
       <CardContent >
-        <Typography sx={{ textAlign: "center", color: "royalblue" }} className="card-title" gutterBottom variant="h5" component="div">
+        <Typography sx={{ textAlign: "center", color: "royalblue" }} className="card-title" gutterBottom variant="h6" component="div">
           {item.productName}
         </Typography>
       </CardContent>
 
-      <CardActions sx={{ justifyContent: "space-between" }}>
-        <Typography sx={{ color: "green" }} variant="h5" component="div">{item.price} ৳</Typography>
+      <CardActions className="card-actions">
+        <Typography sx={{ color: "green" }} variant="h6" component="div" className="card-price">{item.price} ৳</Typography>
         <div className='cart-counter'>
           <Counter item={item} id={id} />
         </div>

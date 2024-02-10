@@ -1,14 +1,16 @@
 import MediaCard from "../Components/MenuCard.js";
 import { useAppContext } from "../Context/productsContext.js";
-// import { API } from "../global.js"
-// import { useState, useEffect } from 'react';
 
 export default function Menu() {
 
-  const { isLoading, products } = useAppContext();
+  const { isLoading, isError, products } = useAppContext();
 
   if (isLoading) {
-    return <><center>.....Loading</center></>
+    return <center><div className="loading-spinner"></div></center>
+  }
+
+  else if (isError) {
+    return <center><div className="loading-spinner"></div>Please Check Backend</center>
   }
 
   return (

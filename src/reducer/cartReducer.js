@@ -5,10 +5,20 @@ const cartReducer = (state, action) => {
         if (noOfItems === 0) {
             let filtercart = [...state.cart].filter((pro) => pro.id !== item.productId)
 
+            let totalItems = filtercart.reduce((acc, cur) => {
+                acc['sum'] += cur.quantity;
+                return acc
+            }, { sum: 0 })
+
+            let totalPrice = filtercart.reduce((acc, cur) => {
+                acc['sum'] += cur.subTotal;
+                return acc
+            }, { sum: 0 })
+
             return {
                 ...state,
-                total_item: 0,
-                total_amount: 0,
+                total_item: totalItems.sum,
+                total_amount: totalPrice.sum,
                 cart: filtercart
             }
         }
@@ -35,12 +45,11 @@ const cartReducer = (state, action) => {
                 acc['sum'] += cur.subTotal;
                 return acc
             }, { sum: 0 })
-            console.log(totalItems.sum, totalPrice.sum)
 
             return {
                 ...state,
                 total_item: totalItems.sum,
-                total_amount: totalItems.sum,
+                total_amount: totalPrice.sum,
                 cart: filtercart
             }
         }

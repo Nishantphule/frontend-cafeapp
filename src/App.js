@@ -25,8 +25,8 @@ function App() {
         elevation={8}
         sx={{ background: "primary", minHeight: "100vh", borderRadius: "0px" }}
       >
-        <AppBar className="navBar" position="static">
-          <Toolbar>
+        <AppBar className="navBar" position="sticky">
+          <Toolbar sx={{ padding: "5px", marginTop: "2px", alignContent: "center" }}>
             <Button
               size="large"
               startIcon={<MenuBookIcon />}
@@ -34,7 +34,7 @@ function App() {
               color="inherit"
               onClick={() => navigate("/")}
             >
-              Home
+              Menu
             </Button>
 
 
@@ -43,11 +43,11 @@ function App() {
               startIcon={<ShoppingCartIcon />}
               aria-label="home"
               color="inherit"
-              sx={{ padding: "0px", marginLeft: "auto" }}
+              variant="outlined"
+              sx={{ padding: "5px", marginLeft: "auto" }}
               onClick={() => navigate("/cart")}
             >
-              <Badge badgeContent={badge} sx={{}}>
-                Cart
+              <Badge badgeContent={badge} >
               </Badge>
             </Button>
 

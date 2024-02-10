@@ -8,13 +8,28 @@ const ProductReducer = (state, action) => {
             }
 
         case "SET_API_DATA":
-            let finalProducts = [...action.payload].map((product) => {
-                return { ...product, "quantity": 0 }
-            })
+            const getLocalCartData = () => {
+                let localCartData = localStorage.getItem("menuItems");
+                let finalProducts = [...action.payload].map((product) => {
+                    return { ...product, "quantity": 0 }
+                })
+                if (localCartData) {
+                    if (JSON.parse(localCartData).length === 0) {
+                        return finalProducts;
+                    }
+                    else {
+                        return JSON.parse(localCartData);
+                    }
+                }
+                else {
+                    return finalProducts;
+                }
+            }
+
             return {
                 ...state,
                 isLoading: false,
-                products: finalProducts
+                products: getLocalCartData()
             }
 
         case "API_ERROR":

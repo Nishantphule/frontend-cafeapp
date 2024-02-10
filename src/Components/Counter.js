@@ -4,16 +4,15 @@ import Button from '@mui/material/Button';
 import { useCartContext } from "../Context/cartContext";
 import { useAppContext } from "../Context/productsContext";
 
-
 function Counter({ item, id }) {
   const { addToCart } = useCartContext();
   const { toggleAmount } = useAppContext();
   const [noOfItems, setNoOfItems] = useState(item.quantity);
 
   useEffect(() => {
-    console.log("Items updated:", noOfItems)
-    toggleAmount(item.productId, noOfItems)
+    toggleAmount(id, noOfItems)
     addToCart(item, noOfItems, noOfItems * item.price)
+    // eslint-disable-next-line
   }, [noOfItems])
 
 
@@ -32,16 +31,16 @@ function Counter({ item, id }) {
 
         ? <>
 
-          <Button variant='outlined' size='large' title="subtract" onClick={() => handleDecrease()} color="error" aria-label="subtract">-</Button>
+          <Button variant='contained' size='small' title="subtract" onClick={() => handleDecrease()} color="error" aria-label="subtract">-</Button>
 
           <Button>{noOfItems}</Button>
 
 
-          <Button variant='outlined' size='large' title="add" onClick={() => handleIncrease()} color="success" aria-label="add">+</Button>
+          <Button variant='contained' size='small' title="add" onClick={() => handleIncrease()} color="success" aria-label="add">+</Button>
         </>
 
         : <>
-          <Button variant='outlined' size='large' title="addToCart" onClick={() => handleIncrease()} color="primary" aria-label="add To Cart">
+          <Button variant='contained' size='medium' title="addToCart" onClick={() => handleIncrease()} color="primary" aria-label="add To Cart">
             Add to Cart
           </Button>
         </>
