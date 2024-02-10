@@ -1,3 +1,7 @@
+* {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .loading-spinner {
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-left: 4px solid #3498db;
@@ -39,7 +43,7 @@
   width: 300px;
   /* Adjust the width of each product */
   background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  border: 1px solid #f0f0f0;
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -72,6 +76,7 @@
   justify-content: space-between;
 }
 
+
 @media screen and (max-width: 768px) {
   .card {
     width: calc(45% - 20px);
@@ -103,18 +108,29 @@
   }
 
   .cart-counter button {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
 
 
 /* Cart Css */
+.cart-title {
+  font-size: 1.5rem;
+  color: #1976d2;
+}
 
 .cartCard {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
+  margin: 10px 0px;
+  padding: 0px;
+}
+
+.totalCard {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .cartCardContent {
@@ -127,44 +143,19 @@
   height: 60px;
   width: 60px;
   object-fit: cover;
-  margin: 5px 5px;
+  margin: 0px 10px 0px 5px;
   padding: 1%;
   background-color: #f0f0f0;
   border-radius: 50%;
 }
 
 .table-container {
-  overflow-x: auto;
   margin: 20px 5px;
-  /* Enable horizontal scrolling on small screens */
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 2;
-  /* Border color */
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-td {
-  padding: 12px;
-  text-align: left;
-  font-family: Arial, sans-serif;
-  font-size: 1.2rem;
-  /* Font family */
-}
-
-thead,
-thead tr {
-  background-color: #417fb6;
-  font-family: 'Times New Roman', Times, serif;
-}
-
-
-.finalTr {
-  background-color: rgb(73, 151, 73);
+.total-title {
+  font-size: 1.5rem;
+  color: #2e7d32;
 }
 
 /* Styles for responsiveness */
@@ -180,17 +171,8 @@ thead tr {
 }
 
 
-@media screen and (max-width: 500px) {
-
-  /* Make table cells display as block elements for small screens */
-  td {
-    display: block;
-    padding: 8px;
-    font-size: 1rem;
-  }
-
-  /* Style the first column (Item) */
-  td:nth-child(1) {
-    font-weight: bold;
+@media only screen and (max-width: 500px) {
+  .cart-title {
+    font-size: 1.2rem;
   }
 }

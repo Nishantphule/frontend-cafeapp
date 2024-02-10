@@ -1,7 +1,6 @@
 import Card from "@mui/material/Card";
 // import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import "../App.css";
 // import { useEffect, useState } from "react";
 // import { useCartContext } from "../Context/cartContext";
@@ -26,26 +25,26 @@ export default function CartComponent({ item, id }) {
     // }, [])
 
     return (
-        <Card className="cartCard" key={item.id}>
+        <Card className="cartCard" key={item.id} sx={{ background: "#f0f0f0" }}>
             <CardContent className="cartCardContent">
                 <img
                     src={item.url}
                     alt={item.name}
                 />
 
-                <Typography sx={{ textAlign: "left", color: "royalblue" }} className="card-title" gutterBottom variant="h6" component="div">
+                <h3 className="cart-title" >
                     {item.name} <br />
                     <small>Price: {item.price} ৳</small> <br />
-                </Typography>
+                </h3>
 
             </CardContent>
 
             <CardContent>
 
-                <Typography sx={{ textAlign: "left", color: "royalblue" }} className="card-title" gutterBottom variant="h6" component="div">
+                <h3 className="cart-title" >
                     <small>Quantity: {item.quantity}</small><br />
                     <small>Subtotal: {item.subTotal} ৳</small>
-                </Typography>
+                </h3>
 
             </CardContent>
 
@@ -56,6 +55,6 @@ export default function CartComponent({ item, id }) {
                 </Button>
             </CardActions> */}
 
-        </Card>
+        </Card >
     )
 }

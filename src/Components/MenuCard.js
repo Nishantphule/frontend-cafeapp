@@ -46,9 +46,7 @@ export default function MediaCard({ item, id }) {
 
       <CardActions className="card-actions">
         <Typography sx={{ color: "green" }} variant="h6" component="div" className="card-price">{item.price} ৳</Typography>
-        <div className='cart-counter'>
-          <Counter item={item} id={id} handleDecrease={handleDecrease} handleIncrease={handleIncrease} noOfItems={noOfItems} />
-        </div>
+        <Counter item={item} id={id} handleDecrease={handleDecrease} handleIncrease={handleIncrease} noOfItems={noOfItems} />
       </CardActions>
 
     </Card>

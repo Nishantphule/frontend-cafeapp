@@ -3,6 +3,8 @@ import CartComponent from "../Components/CartCard";
 import Typography from "@mui/material/Typography";
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 
 export default function Cart() {
 
@@ -35,27 +37,16 @@ export default function Cart() {
 
         ))}
 
-        <table>
+        <Card className="totalCard" sx={{ background: "#f0f0f0" }}>
+          <CardContent>
 
-          <thead>
-            <tr>
-              <td></td>
-              <td></td>
-              <td>Total Items</td>
-              <td>Total Amount</td>
-            </tr>
+            <h3 className="total-title" >
+              <small>Total Quantity: {total_item}</small><br />
+              <small>Grand Total: {total_amount} ৳</small>
+            </h3>
 
-
-          </thead>
-          <tbody>
-            <tr className="finalTr">
-              <td></td>
-              <td></td>
-              <td>{total_item}</td>
-              <td>{total_amount}৳</td>
-            </tr>
-          </tbody>
-        </table>
+          </CardContent>
+        </Card>
 
       </div >
     );
