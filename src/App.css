@@ -67,20 +67,13 @@
   color: #2e7d32;
 }
 
-.cart-counter>button {
-  font-size: 1rem;
-}
-
 .card-actions {
   justify-content: space-between;
 }
 
 .cart-counter button {
-  font-size: 1.2rem;
-}
-
-big {
-  padding: 0px 8px;
+  font-size: 1rem;
+  width: fit-content;
 }
 
 
@@ -92,7 +85,7 @@ big {
   }
 
   .container-menu {
-    gap: 15px;
+    gap: 10px;
     padding: 10px;
   }
 }
@@ -112,19 +105,19 @@ big {
     font-size: 1rem;
   }
 
-  .container-menu {
-    gap: 10px;
-  }
-
-  .card-actions {
+  /* .card-actions {
     flex-direction: column;
     margin: 5px 0px;
+  } */
+
+  .cart-counter {
+    display: flex;
+    flex-direction: column;
   }
 
   .cart-counter button {
     font-size: 0.8rem;
     padding: 5px 5px;
-    margin: 2px 0px;
   }
 }
 
