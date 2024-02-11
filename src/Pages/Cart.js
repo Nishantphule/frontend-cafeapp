@@ -51,20 +51,14 @@ export default function Cart() {
         </div>
 
 
-        <Card className="totalCard" >
-          <h3 className="total-title" >
-            <small>Total Items: {total_item}</small><br />
-            <small>Grand Total: {total_amount} ৳</small>
-          </h3>
-        </Card>
-
         <Card >
           <CardContent className="cartCard posi-fixed bottom">
             <h3 className="total-title" >
-              <big>{total_amount} ৳</big>
+              <big>{total_amount} ৳</big><br />
+              <small>Total Items:{total_item}</small>
             </h3>
 
-            <Button variant="contained" size="large" sx={{ padding: "25px" }}>
+            <Button variant="contained" size="large" sx={{ padding: "25px", marginTop: "15px" }}>
               Proceed to Pay
             </Button>
           </CardContent>

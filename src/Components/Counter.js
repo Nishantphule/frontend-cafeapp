@@ -11,7 +11,7 @@ function Counter({ handleDecrease, handleIncrease, noOfItems }) {
 
           <Button variant='contained' title="subtract" onClick={() => handleDecrease()} color="error" aria-label="subtract">-</Button>
 
-          <Button variant='text'>{noOfItems}</Button>
+          <big variant='text' >{noOfItems}</big>
 
 
           <Button variant='contained' title="add" onClick={() => handleIncrease()} color="success" aria-label="add">+</Button>
