@@ -1,11 +1,12 @@
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
 import "../App.css";
 import { Counter } from "./Counter";
 import { useEffect, useState } from "react";
 import { useCartContext } from "../Context/cartContext";
 import { useAppContext } from "../Context/productsContext";
+import DeleteIcon from '@mui/icons-material/Delete';
+import Button from '@mui/material/Button';
 
 export default function MediaCard({ item, id }) {
 
@@ -28,6 +29,10 @@ export default function MediaCard({ item, id }) {
     setNoOfItems(noOfItems - 1)
   }
 
+  const handleDelete = () => {
+    setNoOfItems(noOfItems - noOfItems)
+  }
+
   return (
     <Card className="card" key={id}>
 
@@ -37,17 +42,27 @@ export default function MediaCard({ item, id }) {
         className="card-image"
       />
 
-      <CardContent >
-        <h3 className="card-title">
-          {item.productName}
-        </h3>
-      </CardContent>
+      <h3 className="card-title">
+        {item.productName}
+      </h3>
+
+      <h3 className="card-price">
+        {item.price} ৳
+      </h3>
 
       <CardActions className="card-actions">
 
-        <h3 className="card-price">{item.price} ৳</h3>
 
         <Counter item={item} id={id} handleDecrease={handleDecrease} handleIncrease={handleIncrease} noOfItems={noOfItems} />
+
+        {noOfItems > 0 ?
+          <>
+            <Button variant='contained' title="delete" onClick={() => handleDelete()} color="primary" aria-label="subtract">{<DeleteIcon />}</Button>
+          </>
+          :
+          <></>
+        }
+
       </CardActions>
 
     </Card>

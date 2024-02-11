@@ -27,7 +27,7 @@ export default function Cart() {
 
         <Button onClick={() => navigate('/')} variant="contained" sx={{ margin: "10px 5px" }}>Back</Button>
 
-        <Card className="cartCard posi-fixed" >
+        <Card className="cartCard" >
           <h3 className="total-title" >
             <small>Product</small>
           </h3>
@@ -52,10 +52,10 @@ export default function Cart() {
 
 
         <Card >
-          <CardContent className="cartCard posi-fixed bottom">
+          <CardContent className="cartCard posi-fixed">
             <h3 className="total-title" >
               <big>{total_amount} ৳</big><br />
-              <small>Total Items:{total_item}</small>
+              <small>Total Items: {total_item}</small>
             </h3>
 
             <Button variant="contained" size="large" sx={{ padding: "25px", marginTop: "15px" }}>

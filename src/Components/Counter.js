@@ -1,6 +1,7 @@
 import '../App.css';
 import Button from '@mui/material/Button';
 
+
 function Counter({ handleDecrease, handleIncrease, noOfItems }) {
 
   return (
@@ -8,12 +9,13 @@ function Counter({ handleDecrease, handleIncrease, noOfItems }) {
       {noOfItems > 0
 
         ? <>
-          <Button variant='contained' title="add" onClick={() => handleIncrease()} color="success" aria-label="add">+</Button>
 
+          <Button variant='contained' title="subtract" onClick={() => handleDecrease()} color="error" aria-label="subtract">-</Button>
 
           <Button size='small' variant='text'>{noOfItems}</Button>
 
-          <Button variant='contained' title="subtract" onClick={() => handleDecrease()} color="error" aria-label="subtract">-</Button>
+          <Button variant='contained' title="add" onClick={() => handleIncrease()} color="success" aria-label="add">+</Button>
+
         </>
 
         : <>
