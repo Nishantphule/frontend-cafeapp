@@ -6,13 +6,17 @@ import { useEffect, useState } from "react";
 import { useCartContext } from "../Context/cartContext";
 import { useAppContext } from "../Context/productsContext";
 import DeleteIcon from '@mui/icons-material/Delete';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 
 export default function MediaCard({ item, id }) {
 
   const { addToCart } = useCartContext();
   const { toggleAmount } = useAppContext();
   const [noOfItems, setNoOfItems] = useState(item.quantity);
+
+  const styles = {
+    justifyContent: noOfItems > 0 ? "space-between" : "center"
+  }
 
   useEffect(() => {
     toggleAmount(id, noOfItems)
@@ -50,14 +54,14 @@ export default function MediaCard({ item, id }) {
         {item.price} ৳
       </h3>
 
-      <CardActions className="card-actions">
+      <CardActions style={styles}>
 
 
         <Counter item={item} id={id} handleDecrease={handleDecrease} handleIncrease={handleIncrease} noOfItems={noOfItems} />
 
         {noOfItems > 0 ?
           <>
-            <Button variant='contained' title="delete" onClick={() => handleDelete()} color="primary" aria-label="subtract">{<DeleteIcon />}</Button>
+            <IconButton variant='contained' title="delete" onClick={() => handleDelete()} color="primary" aria-label="subtract">{<DeleteIcon />}</IconButton>
           </>
           :
           <></>

@@ -5,11 +5,13 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import PaymentBtn from "../Components/PaymentBtn";
 
 export default function Cart() {
 
   const { cart, total_item, total_amount } = useCartContext();
   const navigate = useNavigate();
+
   if (cart.length === 0) {
     return (
       <>
@@ -53,14 +55,14 @@ export default function Cart() {
 
         <Card >
           <CardContent className="cartCard posi-fixed">
+
             <h3 className="total-title" >
               <big>{total_amount} ৳</big><br />
               <small>Total Items: {total_item}</small>
             </h3>
 
-            <Button variant="contained" size="large" sx={{ padding: "25px", marginTop: "15px" }}>
-              Proceed to Pay
-            </Button>
+            <PaymentBtn cart={cart} total_item={total_item} total_amount={total_amount} />
+
           </CardContent>
         </Card>
 

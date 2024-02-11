@@ -67,8 +67,13 @@
   color: #2e7d32;
 }
 
-.card-actions {
+/* .card-actions {
   justify-content: space-between;
+} */
+
+.cart-counter {
+  display: flex;
+  justify-content: space-around;
 }
 
 .cart-counter button {
@@ -103,7 +108,7 @@
 
   .cart-counter {
     display: flex;
-    flex-direction: column-reverse;
+    justify-content: space-around;
   }
 
   .card-price {
