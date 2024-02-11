@@ -52,12 +52,10 @@ export default function Cart() {
 
 
         <Card className="totalCard" >
-          <CardContent>
-            <h3 className="total-title" >
-              <small>Total Items: {total_item}</small><br />
-              <small>Grand Total: {total_amount} ৳</small>
-            </h3>
-          </CardContent>
+          <h3 className="total-title" >
+            <small>Total Items: {total_item}</small><br />
+            <small>Grand Total: {total_amount} ৳</small>
+          </h3>
         </Card>
 
         <Card >
