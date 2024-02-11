@@ -26,10 +26,6 @@
 
 
 /* Card */
-.cart-counter button {
-  font-size: 1rem;
-}
-
 .container-menu {
   display: flex;
   flex-wrap: wrap;
@@ -42,8 +38,6 @@
 .card {
   width: 300px;
   /* Adjust the width of each product */
-  background-color: #f0f0f0;
-  border: 1px solid #f0f0f0;
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -63,17 +57,26 @@
   background-color: #ccc;
 }
 
+.card-title {
+  font-size: 1.5rem;
+  color: #1976d2;
+}
+
+.card-price {
+  font-size: 1.3rem;
+  color: #2e7d32;
+}
+
+.cart-counter>button {
+  font-size: 1rem;
+}
+
 .card-actions {
   justify-content: space-between;
 }
 
 .cart-counter button {
   font-size: 1.2rem;
-}
-
-.cart-actions {
-  display: flex;
-  justify-content: space-between;
 }
 
 
@@ -97,9 +100,16 @@
     padding: 5px;
   }
 
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-price {
+    font-size: 1rem;
+  }
+
   .container-menu {
     gap: 10px;
-    padding: 10px;
   }
 
   .card-actions {
@@ -108,49 +118,40 @@
   }
 
   .cart-counter button {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
   }
 }
 
 
 
 /* Cart Css */
-.cart-title {
-  font-size: 1.5rem;
-  color: #1976d2;
-}
-
 .cartCard {
+
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  margin: 10px 0px;
-  padding: 0px;
+  align-items: flex-start;
+  margin: 5px 0px;
+  padding: 0px 10px;
 }
 
 .totalCard {
   display: flex;
   justify-content: flex-end;
+  align-items: flex-start;
 }
 
-.cartCardContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.cartItemsContainer {
+  max-height: 55vh;
+  overflow: auto;
 }
 
-.cartCardContent>img {
-  height: 60px;
-  width: 60px;
-  object-fit: cover;
-  margin: 0px 10px 0px 5px;
-  padding: 1%;
-  background-color: #f0f0f0;
-  border-radius: 50%;
+.cartItems {
+  height: max-content;
 }
 
-.table-container {
-  margin: 20px 5px;
+.cart-title {
+  font-size: 1.5rem;
+  color: #1976d2;
 }
 
 .total-title {
@@ -158,21 +159,50 @@
   color: #2e7d32;
 }
 
+.cart-container {
+  margin: 20px 5px;
+}
+
+posi-fixed {
+  position: fixed;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+}
+
+/* .cart-actions {
+  display: flex;
+  justify-content: space-between;
+} */
+
+
 /* Styles for responsiveness */
 @media screen and (min-width: 1192px) {
 
-  .table-container {
-    overflow-x: auto;
+  .cart-container {
     margin: 20px 5px;
     width: 50%;
     margin: auto;
     /* Enable horizontal scrolling on small screens */
+  }
+
+  .bottom {
+    position: fixed;
+    bottom: 0;
+    width: 50%;
   }
 }
 
 
 @media only screen and (max-width: 500px) {
   .cart-title {
-    font-size: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .total-title {
+    font-size: 1rem;
   }
 }

@@ -25,36 +25,31 @@ export default function CartComponent({ item, id }) {
     // }, [])
 
     return (
-        <Card className="cartCard" key={item.id} sx={{ background: "#f0f0f0" }}>
-            <CardContent className="cartCardContent">
-                <img
-                    src={item.url}
-                    alt={item.name}
-                />
 
-                <h3 className="cart-title" >
-                    {item.name} <br />
-                    <small>Price: {item.price} ৳</small> <br />
-                </h3>
+        <Card className="cartCard" key={item.id} >
 
-            </CardContent>
+
+            <h3 className="cart-title" >
+                {item.name}                    <small> x {item.quantity}</small><br />
+                <small>Price: {item.price} ৳</small> <br />
+            </h3>
 
             <CardContent>
 
                 <h3 className="cart-title" >
-                    <small>Quantity: {item.quantity}</small><br />
-                    <small>Subtotal: {item.subTotal} ৳</small>
+                    <small>{item.subTotal} ৳</small>
                 </h3>
 
             </CardContent>
 
 
             {/* <CardActions className="card-actions">
-                <Button onClick={() => handleClear()} color="error" variant="outlined">
-                    Remove<DeleteIcon color="error" />
-                </Button>
-            </CardActions> */}
+    <Button onClick={() => handleClear()} color="error" variant="outlined">
+        Remove<DeleteIcon color="error" />
+    </Button>
+</CardActions> */}
 
         </Card >
+
     )
 }

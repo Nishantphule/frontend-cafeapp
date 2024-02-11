@@ -23,28 +23,52 @@ export default function Cart() {
   else {
 
     return (
-      <div className="table-container">
+      <div className="cart-container">
 
-        <Button onClick={() => navigate('/')} variant="contained" sx={{ margin: "10px 0px" }}>Back</Button>
+        <Button onClick={() => navigate('/')} variant="contained" sx={{ margin: "10px 5px" }}>Back</Button>
 
-        {cart.map((data) => (
+        <Card className="cartCard posi-fixed" >
+          <h3 className="total-title" >
+            <small>Product</small>
+          </h3>
+          <h3 className="total-title" >
+            <small>Subtotal</small>
+          </h3>
+        </Card>
 
-          (< CartComponent
-            key={data.id}
-            item={data}
-            id={data.id}
-          />)
+        <div className="cartItemsContainer">
+          <div className="cartItems">
+            {cart.map((data) => (
 
-        ))}
+              (< CartComponent
+                key={data.id}
+                item={data}
+                id={data.id}
+              />)
 
-        <Card className="totalCard" sx={{ background: "#f0f0f0" }}>
+            ))}
+          </div>
+        </div>
+
+
+        <Card className="totalCard" >
           <CardContent>
-
             <h3 className="total-title" >
-              <small>Total Quantity: {total_item}</small><br />
+              <small>Total Items: {total_item}</small><br />
               <small>Grand Total: {total_amount} ৳</small>
             </h3>
+          </CardContent>
+        </Card>
 
+        <Card >
+          <CardContent className="cartCard posi-fixed bottom">
+            <h3 className="total-title" >
+              <big>{total_amount} ৳</big>
+            </h3>
+
+            <Button variant="contained" size="large" sx={{ padding: "25px" }}>
+              Proceed to Pay
+            </Button>
           </CardContent>
         </Card>
 

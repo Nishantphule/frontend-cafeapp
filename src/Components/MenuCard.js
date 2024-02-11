@@ -1,7 +1,6 @@
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import "../App.css";
 import { Counter } from "./Counter";
 import { useEffect, useState } from "react";
@@ -39,13 +38,15 @@ export default function MediaCard({ item, id }) {
       />
 
       <CardContent >
-        <Typography sx={{ textAlign: "center", color: "royalblue" }} className="card-title" gutterBottom variant="h6" component="div">
+        <h3 className="card-title">
           {item.productName}
-        </Typography>
+        </h3>
       </CardContent>
 
       <CardActions className="card-actions">
-        <Typography sx={{ color: "green" }} variant="h6" component="div" className="card-price">{item.price} ৳</Typography>
+
+        <h3 className="card-price">{item.price} ৳</h3>
+
         <Counter item={item} id={id} handleDecrease={handleDecrease} handleIncrease={handleIncrease} noOfItems={noOfItems} />
       </CardActions>
 

@@ -4,7 +4,6 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import { Paper } from "@mui/material";
-import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
@@ -29,7 +28,6 @@ function App() {
           <Toolbar sx={{ padding: "5px", marginTop: "2px", alignContent: "center" }}>
             <Button
               size="large"
-              startIcon={<MenuBookIcon />}
               aria-label="home"
               color="inherit"
               onClick={() => navigate("/")}

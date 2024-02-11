@@ -9,16 +9,16 @@ function Counter({ handleDecrease, handleIncrease, noOfItems }) {
 
         ? <>
 
-          <Button variant='contained' size='small' title="subtract" onClick={() => handleDecrease()} color="error" aria-label="subtract">-</Button>
+          <Button variant='contained' title="subtract" onClick={() => handleDecrease()} color="error" aria-label="subtract">-</Button>
 
-          <Button>{noOfItems}</Button>
+          <Button variant='text'>{noOfItems}</Button>
 
 
-          <Button variant='contained' size='small' title="add" onClick={() => handleIncrease()} color="success" aria-label="add">+</Button>
+          <Button variant='contained' title="add" onClick={() => handleIncrease()} color="success" aria-label="add">+</Button>
         </>
 
         : <>
-          <Button variant='contained' size='medium' title="addToCart" onClick={() => handleIncrease()} color="primary" aria-label="add To Cart">
+          <Button variant='contained' title="addToCart" onClick={() => handleIncrease()} color="primary" aria-label="add To Cart">
             Add to Cart
           </Button>
         </>
