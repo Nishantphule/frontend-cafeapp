@@ -92,7 +92,7 @@
 
 @media screen and (max-width: 680px) {
   .card {
-    width: 250px;
+    width: 200px;
     /* Adjust for even smaller screens */
     padding: 5px;
   }
@@ -116,7 +116,13 @@
   }
 }
 
-
+@media screen and (max-width: 470px) {
+  .card {
+    width: 180px;
+    /* Adjust for even smaller screens */
+    padding: 5px;
+  }
+}
 
 /* Cart Css */
 .cartCard {
