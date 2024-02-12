@@ -47,8 +47,7 @@
   width: 300px;
   /* Adjust the width of each product */
   border-radius: 5px;
-  border: 1px solid #1976d2;
-  padding: 8px;
+  padding: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -104,7 +103,7 @@
   .card {
     width: 200px;
     /* Adjust for even smaller screens */
-    padding: 3px;
+    padding: 5px;
   }
 
   .card-title {
