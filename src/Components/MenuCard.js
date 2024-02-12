@@ -9,16 +9,21 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import { toast } from 'react-toastify';
 
+// Displays the products in the backend in a Card format
 export default function MediaCard({ item, id }) {
 
   const { addToCart } = useCartContext();
   const { toggleAmount } = useAppContext();
+
+  // keeps the track of quantity of each item
   const [noOfItems, setNoOfItems] = useState(item.quantity);
 
+  // style condition for add to cart button
   const styles = {
     justifyContent: noOfItems > 0 ? "space-between" : "center"
   }
 
+  // useEffect to load page on every change in no of items
   useEffect(() => {
     toggleAmount(id, noOfItems)
     addToCart(item, noOfItems, noOfItems * item.price)

@@ -3,6 +3,7 @@ import reducer from '../reducer/cartReducer'
 
 const CartContext = createContext();
 
+// get the previous data from local storage if available
 const getLocalCartData = () => {
     let localCartData = localStorage.getItem("cartItems");
     if (localCartData) {
@@ -68,10 +69,12 @@ const CartProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
+    // function to handle quantity and add to cart
     const addToCart = (item, noOfItems, amount) => {
         dispatch({ type: "ADD_TO_CART", payload: { item, noOfItems, amount } })
     }
 
+    // clear cart 
     const clearCart = () => {
         dispatch({ type: "CLEAR_CART" })
     }

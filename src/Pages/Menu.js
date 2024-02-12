@@ -1,6 +1,7 @@
 import MediaCard from "../Components/MenuCard.js";
 import { useAppContext } from "../Context/productsContext.js";
 
+// function to show menu page
 export default function Menu() {
 
   const { isLoading, isError, products } = useAppContext();

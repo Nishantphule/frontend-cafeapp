@@ -14,10 +14,14 @@ import { useCartContext } from "./Context/cartContext";
 import { useEffect, useState } from "react";
 
 function App() {
+
   const navigate = useNavigate();
+
   const { total_item } = useCartContext();
   const [badge, setBadge] = useState(0)
+
   useEffect(() => { setBadge(total_item) }, [total_item])
+
   return (
     <>
       <Paper

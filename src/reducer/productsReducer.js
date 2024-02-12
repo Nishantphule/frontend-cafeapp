@@ -8,6 +8,7 @@ const ProductReducer = (state, action) => {
             }
 
         case "SET_API_DATA":
+            // get the previous data from localstorage or else add new
             const getLocalCartData = () => {
                 let localCartData = localStorage.getItem("menuItems");
                 let finalProducts = [...action.payload].map((product) => {

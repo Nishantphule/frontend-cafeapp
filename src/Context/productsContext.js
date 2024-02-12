@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 const AppContext = createContext();
 
+// get the previous data from local storage if available
 const getLocalMenuData = () => {
     let localMenudata = localStorage.getItem("menuItems");
     if (localMenudata) {
@@ -46,10 +47,12 @@ const AppProvider = ({ children }) => {
 
     useEffect(() => getMenu(), []);
 
+    //  toggle quantity
     const toggleAmount = (itemId, noOfItems) => {
         dispatch({ type: "TOGGLE_AMOUNT", payload: { itemId, noOfItems, ...state } })
     }
 
+    // clear menu quantity after successful payment
     const clearMenu = () => {
         dispatch({ type: "CLEAR_MENU" })
         getMenu();

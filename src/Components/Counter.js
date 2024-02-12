@@ -5,7 +5,7 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { toast } from 'react-toastify';
 
-
+// Counter for menu item card , to add item to cart and handle the quantity 
 function Counter({ handleDecrease, handleIncrease, noOfItems, name }) {
 
   return (
@@ -23,7 +23,7 @@ function Counter({ handleDecrease, handleIncrease, noOfItems, name }) {
         </>
 
         : <>
-          <Button variant='contained' title="addToCart"
+          <Button variant='contained' title="Add to cart"
             onClick={() => {
               handleIncrease()
               toast.success(`${name} added to Cart`)

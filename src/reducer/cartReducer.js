@@ -2,6 +2,7 @@ const cartReducer = (state, action) => {
     if (action.type === "ADD_TO_CART") {
         let { item, noOfItems, amount } = action.payload;
 
+        // if quantity zero remove from cart
         if (noOfItems === 0) {
             let filtercart = [...state.cart].filter((pro) => pro.id !== item.productId)
 
@@ -22,6 +23,8 @@ const cartReducer = (state, action) => {
                 cart: filtercart
             }
         }
+
+        // else handle cart quantity
         else {
             let cartProduct;
 
@@ -56,6 +59,8 @@ const cartReducer = (state, action) => {
         }
 
     }
+
+    // clear cart
     else if (action.type === "CLEAR_CART") {
         return {
             ...state,
@@ -64,6 +69,8 @@ const cartReducer = (state, action) => {
             cart: []
         }
     }
+
+    // default return
     return state
 }
 export default cartReducer;

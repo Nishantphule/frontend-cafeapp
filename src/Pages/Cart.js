@@ -9,12 +9,14 @@ import PaymentBtn from "../Components/PaymentBtn";
 import { useAppContext } from "../Context/productsContext";
 import { toast } from 'react-toastify';
 
+// Cart page
 export default function Cart() {
 
   const { cart, total_item, total_amount, clearCart } = useCartContext();
   const { clearMenu } = useAppContext();
   const navigate = useNavigate();
 
+  // handle clear to empty cart
   const handleClear = () => {
     clearCart()
     clearMenu()
@@ -22,6 +24,7 @@ export default function Cart() {
     toast.success("Cart Empty")
   }
 
+  // if cart empty show this
   if (cart.length === 0) {
     return (
       <>
@@ -32,6 +35,8 @@ export default function Cart() {
 
       </>)
   }
+
+  // else show cart items and other functions
   else {
 
     return (

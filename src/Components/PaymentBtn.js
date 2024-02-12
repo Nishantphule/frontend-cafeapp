@@ -7,13 +7,15 @@ import { useAppContext } from '../Context/productsContext.js';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-export default function PaymentBtn({ cart, total_item, total_amount }) {
+// Handle payment function
+export default function PaymentBtn({ cart, total_amount }) {
 
     const { clearCart } = useCartContext();
     const { clearMenu } = useAppContext();
 
     const navigate = useNavigate();
 
+    // on successful payment clear the cart and quantity
     const handleClear = () => {
         clearCart()
         clearMenu()
@@ -24,6 +26,7 @@ export default function PaymentBtn({ cart, total_item, total_amount }) {
     const currencyI = "INR";
     const receiptId = Math.floor(Math.random() * Date.now()).toString();
 
+    // adding bill items to notes to send it to razorpay
     let notes = [...cart].reduce((acc, cur) => {
         acc['items'] += cur.name + "/";
         acc['quantity'] += cur.quantity.toString() + "/";
@@ -31,7 +34,7 @@ export default function PaymentBtn({ cart, total_item, total_amount }) {
         return acc
     }, { items: "", quantity: "", price: "" })
 
-    console.log(amountI, currencyI, receiptId)
+    // loading necessary razorpay script
     function loadScript(src) {
         return new Promise((resolve) => {
             const script = document.createElement("script");
@@ -71,7 +74,6 @@ export default function PaymentBtn({ cart, total_item, total_amount }) {
         })
 
         const order = await response.json();
-        console.log(order)
 
         const options = {
             key: "rzp_test_VfwuReyozf2gOX", // Enter the Key ID generated from the Dashboard
@@ -104,7 +106,7 @@ export default function PaymentBtn({ cart, total_item, total_amount }) {
                 contact: "9999999999",
             },
             notes: {
-                address: "Web Dev",
+                address: "Razorpay Inc.",
             },
             theme: {
                 color: "#61dafb",

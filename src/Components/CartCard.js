@@ -3,11 +3,12 @@ import CardContent from "@mui/material/CardContent";
 import "../App.css";
 
 
+// Cart card component to display items in the cart
 export default function CartComponent({ item, id }) {
 
     return (
 
-        <Card className="cartCard" key={item.id} >
+        <Card className="cartCard" key={id} >
 
             <h3 className="cart-title" >
                 {item.name} <small> x {item.quantity}</small><br />
