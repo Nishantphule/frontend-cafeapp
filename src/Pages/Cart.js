@@ -6,11 +6,19 @@ import { useNavigate } from 'react-router-dom';
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import PaymentBtn from "../Components/PaymentBtn";
+import { useAppContext } from "../Context/productsContext";
 
 export default function Cart() {
 
-  const { cart, total_item, total_amount } = useCartContext();
+  const { cart, total_item, total_amount, clearCart } = useCartContext();
+  const { clearMenu } = useAppContext();
   const navigate = useNavigate();
+
+  const handleClear = () => {
+    clearCart()
+    clearMenu()
+    navigate('/')
+  }
 
   if (cart.length === 0) {
     return (
@@ -27,7 +35,11 @@ export default function Cart() {
     return (
       <div className="cart-container">
 
-        <Button onClick={() => navigate('/')} variant="contained" sx={{ margin: "10px 5px" }}>Back</Button>
+        <div className="cartBtn">
+          <Button onClick={() => navigate('/')} variant="contained" sx={{ margin: "10px 5px" }}>Back</Button>
+          <Button color="error" onClick={() => handleClear()} variant="contained" sx={{ margin: "10px 5px" }}>clear</Button>
+        </div>
+
 
         <Card className="cartCard" >
           <h3 className="total-title" >

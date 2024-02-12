@@ -50,12 +50,17 @@ const AppProvider = ({ children }) => {
         dispatch({ type: "TOGGLE_AMOUNT", payload: { itemId, noOfItems, ...state } })
     }
 
+    const clearMenu = () => {
+        dispatch({ type: "CLEAR_MENU" })
+        getMenu();
+    }
+
     // add data to local storage
     useEffect(() => {
         localStorage.setItem("menuItems", JSON.stringify(state.products))
     }, [state.products])
 
-    return (<AppContext.Provider value={{ ...state, toggleAmount }}>{children}</AppContext.Provider>);
+    return (<AppContext.Provider value={{ ...state, toggleAmount, clearMenu }}>{children}</AppContext.Provider>);
 }
 
 const useAppContext = () => {

@@ -72,13 +72,17 @@ const CartProvider = ({ children }) => {
         dispatch({ type: "ADD_TO_CART", payload: { item, noOfItems, amount } })
     }
 
+    const clearCart = () => {
+        dispatch({ type: "CLEAR_CART" })
+    }
+
     // add data to local storage
     useEffect(() => {
         localStorage.setItem("cartItems", JSON.stringify(state.cart))
     }, [state.cart])
 
 
-    return (<CartContext.Provider value={{ ...state, addToCart }}>{children}</CartContext.Provider>);
+    return (<CartContext.Provider value={{ ...state, addToCart, clearCart }}>{children}</CartContext.Provider>);
 }
 
 const useCartContext = () => {

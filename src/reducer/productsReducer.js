@@ -56,6 +56,12 @@ const ProductReducer = (state, action) => {
                 products: updatedProducts
             }
 
+        case 'CLEAR_MENU':
+            return {
+                ...state,
+                products: []
+            }
+
         default:
             return state
     }

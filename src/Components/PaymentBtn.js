@@ -2,8 +2,22 @@ import React from 'react'
 import Button from '@mui/material/Button';
 import axios from "axios"
 import { API } from "../global.js"
+import { useCartContext } from '../Context/cartContext.js';
+import { useAppContext } from '../Context/productsContext.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function PaymentBtn({ cart, total_item, total_amount }) {
+
+    const { clearCart } = useCartContext();
+    const { clearMenu } = useAppContext();
+
+    const navigate = useNavigate();
+
+    const handleClear = () => {
+        clearCart()
+        clearMenu()
+        navigate('/')
+    }
 
     const amountI = total_amount;
     const currencyI = "INR";
@@ -16,6 +30,7 @@ export default function PaymentBtn({ cart, total_item, total_amount }) {
         return acc
     }, { items: "", quantity: "", price: "" })
 
+    console.log(amountI, currencyI, receiptId)
     function loadScript(src) {
         return new Promise((resolve) => {
             const script = document.createElement("script");
@@ -44,7 +59,7 @@ export default function PaymentBtn({ cart, total_item, total_amount }) {
         const response = await fetch(`${API}/order/createOrder`, {
             method: "POST",
             body: JSON.stringify({
-                amount: amountI,
+                amount: amountI * 100,
                 currency: currencyI,
                 receipt: receiptId,
                 notes: notes
@@ -54,28 +69,30 @@ export default function PaymentBtn({ cart, total_item, total_amount }) {
             }
         })
 
-        const { amount, id: order_id, currency } = await response.json();
-        console.log(order_id)
+        const order = await response.json();
+        console.log(order)
 
         const options = {
             key: "rzp_test_VfwuReyozf2gOX", // Enter the Key ID generated from the Dashboard
-            amount: amount.toString() + "00",
-            currency: currency,
+            amount: order.amount.toString(),
+            currency: order.currency,
             name: "Customer",
             description: "Test Transaction",
             image: '',
-            order_id: order_id,
+            order_id: order.id,
             handler: async function (response) {
                 const data = {
-                    orderCreationId: order_id,
+                    orderCreationId: order.id,
                     razorpayPaymentId: response.razorpay_payment_id,
                     razorpayOrderId: response.razorpay_order_id,
                     razorpaySignature: response.razorpay_signature,
                 };
 
                 const result = await axios.post(`${API}/order/success`, data);
-                console.log(result)
                 alert(result.data.msg);
+                if (result.data.msg === "success") {
+                    handleClear();
+                }
             },
             prefill: {
                 name: "Test App",

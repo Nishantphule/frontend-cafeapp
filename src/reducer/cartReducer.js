@@ -56,6 +56,14 @@ const cartReducer = (state, action) => {
         }
 
     }
+    else if (action.type === "CLEAR_CART") {
+        return {
+            ...state,
+            total_item: '',
+            total_amount: '',
+            cart: []
+        }
+    }
     return state
 }
 export default cartReducer;
