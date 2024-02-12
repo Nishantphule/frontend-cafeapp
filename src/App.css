@@ -104,7 +104,7 @@
   .card {
     width: 200px;
     /* Adjust for even smaller screens */
-    padding: 5px;
+    padding: 3px;
   }
 
   .card-title {
