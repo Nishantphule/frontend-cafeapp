@@ -2,6 +2,14 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
+/* react toastify css */
+.toastBody {
+  font-family: "Atlas Grotesk Web", Arial, Helvetica, sans-serif;
+  color: #f0f0f0;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
 .loading-spinner {
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-left: 4px solid #3498db;
@@ -36,9 +44,10 @@
 }
 
 .card {
-  width: 350px;
+  width: 300px;
   /* Adjust the width of each product */
   border-radius: 5px;
+  border: 1px solid #1976d2;
   padding: 10px;
   text-align: center;
   display: flex;
@@ -66,10 +75,6 @@
   font-size: 1.3rem;
   color: #2e7d32;
 }
-
-/* .card-actions {
-  justify-content: space-between;
-} */
 
 .cart-counter {
   display: flex;
@@ -118,6 +123,11 @@
   .cart-counter button {
     font-size: 0.8rem;
     padding: 5px 5px;
+  }
+
+  .toastBody {
+    font-weight: 500;
+    font-size: 0.975rem;
   }
 }
 

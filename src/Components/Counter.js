@@ -3,9 +3,10 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { toast } from 'react-toastify';
 
 
-function Counter({ handleDecrease, handleIncrease, noOfItems }) {
+function Counter({ handleDecrease, handleIncrease, noOfItems, name }) {
 
   return (
     <div className='cart-counter'>
@@ -22,7 +23,12 @@ function Counter({ handleDecrease, handleIncrease, noOfItems }) {
         </>
 
         : <>
-          <Button variant='contained' title="addToCart" onClick={() => handleIncrease()} color="primary" aria-label="add To Cart">
+          <Button variant='contained' title="addToCart"
+            onClick={() => {
+              handleIncrease()
+              toast.success(`${name} added to Cart`)
+            }}
+            color="primary" aria-label="add To Cart">
             Add to Cart
           </Button>
         </>

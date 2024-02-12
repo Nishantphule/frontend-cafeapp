@@ -7,6 +7,7 @@ import { useCartContext } from "../Context/cartContext";
 import { useAppContext } from "../Context/productsContext";
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
+import { toast } from 'react-toastify';
 
 export default function MediaCard({ item, id }) {
 
@@ -30,11 +31,15 @@ export default function MediaCard({ item, id }) {
   }
 
   const handleDecrease = () => {
+    if (noOfItems - 1 === 0) {
+      toast.info(`${item.productName} Removed from Cart `)
+    }
     setNoOfItems(noOfItems - 1)
   }
 
   const handleDelete = () => {
     setNoOfItems(noOfItems - noOfItems)
+    toast.info(`${item.productName} Removed from Cart`)
   }
 
   return (
@@ -57,7 +62,7 @@ export default function MediaCard({ item, id }) {
       <CardActions style={styles}>
 
 
-        <Counter item={item} id={id} handleDecrease={handleDecrease} handleIncrease={handleIncrease} noOfItems={noOfItems} />
+        <Counter item={item} id={id} handleDecrease={handleDecrease} handleIncrease={handleIncrease} noOfItems={noOfItems} name={item.productName} />
 
         {noOfItems > 0 ?
           <>

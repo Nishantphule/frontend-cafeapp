@@ -5,6 +5,7 @@ import { API } from "../global.js"
 import { useCartContext } from '../Context/cartContext.js';
 import { useAppContext } from '../Context/productsContext.js';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function PaymentBtn({ cart, total_item, total_amount }) {
 
@@ -89,9 +90,12 @@ export default function PaymentBtn({ cart, total_item, total_amount }) {
                 };
 
                 const result = await axios.post(`${API}/order/success`, data);
-                alert(result.data.msg);
                 if (result.data.msg === "success") {
                     handleClear();
+                    toast.success("Payment Successful")
+                }
+                else {
+                    toast.error("Payment Failed")
                 }
             },
             prefill: {

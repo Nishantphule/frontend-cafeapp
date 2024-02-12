@@ -7,6 +7,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import PaymentBtn from "../Components/PaymentBtn";
 import { useAppContext } from "../Context/productsContext";
+import { toast } from 'react-toastify';
 
 export default function Cart() {
 
@@ -18,6 +19,7 @@ export default function Cart() {
     clearCart()
     clearMenu()
     navigate('/')
+    toast.success("Cart Empty")
   }
 
   if (cart.length === 0) {
